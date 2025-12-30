@@ -1,0 +1,78 @@
+=== ANÁLISIS DE RESULTADOS ===
+
+📘 Lista Enlazada Multithread:
+           impl_type  threads     mean      min      max
+Libro (Mutex Global)        1  489.435  489.435  489.435
+Libro (Mutex Global)        2 1561.055 1561.055 1561.055
+Libro (Mutex Global)        4 1175.817 1175.817 1175.817
+Libro (Mutex Global)        8 1963.328 1963.328 1963.328
+Libro (Mutex Global)       12 2356.757 2356.757 2356.757
+Libro (Mutex Global)       16 3349.833 3349.833 3349.833
+  Propia (Lock-Free)        1  595.100  595.100  595.100
+  Propia (Lock-Free)        2  401.070  401.070  401.070
+  Propia (Lock-Free)        4  212.933  212.933  212.933
+  Propia (Lock-Free)        8  189.319  189.319  189.319
+  Propia (Lock-Free)       12  175.839  175.839  175.839
+  Propia (Lock-Free)       16  163.851  163.851  163.851
+
+Speedup relativo (menor tiempo como referencia):
+impl_type  Libro (Mutex Global)  Propia (Lock-Free)
+threads                                            
+1                      1.000000            0.275334
+2                      0.313528            0.408535
+4                      0.416251            0.769496
+8                      0.249288            0.865476
+12                     0.207673            0.931824
+16                     0.146107            1.000000
+
+📗 Matriz × Vector:
+        impl_type  threads      mean      min      max
+ Libro (Estática)        1 21.403000 21.40300 21.40300
+ Libro (Estática)        2  8.551000  8.55100  8.55100
+ Libro (Estática)        4  5.595000  5.59500  5.59500
+ Libro (Estática)        8  4.749000  4.74900  4.74900
+ Libro (Estática)       12  5.088000  5.08800  5.08800
+ Libro (Estática)       16  3.991000  3.99100  3.99100
+Propia (Dinámica)        1 31.175833 18.62790 37.68000
+Propia (Dinámica)        2  9.498013  8.65260 10.84140
+Propia (Dinámica)        4  6.265403  5.68559  7.41250
+Propia (Dinámica)        8  4.250467  4.15150  4.31622
+Propia (Dinámica)       12  4.312367  4.15709  4.59320
+Propia (Dinámica)       16  4.225153  4.15137  4.31726
+
+Speedup relativo (menor tiempo como referencia):
+impl_type  Libro (Estática)  Propia (Dinámica)
+threads                                       
+1                  0.186469           0.135527
+2                  0.466729           0.444846
+4                  0.713315           0.674363
+8                  0.840387           0.994045
+12                 0.784395           0.979776
+16                 1.000000           1.000000
+
+📙 Thread Safety / Barreras:
+                        impl_type  threads     mean      min      max
+                  Libro (CondVar)        1  0.20100  0.20100  0.20100
+                  Libro (CondVar)        2  2.31400  2.31400  2.31400
+                  Libro (CondVar)        4  3.70600  3.70600  3.70600
+                  Libro (CondVar)        8  8.52600  8.52600  8.52600
+                  Libro (CondVar)       12 18.84800 18.84800 18.84800
+                  Libro (CondVar)       16 22.57900 22.57900 22.57900
+Propia (Sense-Reversing + Ticket)        1  7.27022  7.27022  7.27022
+Propia (Sense-Reversing + Ticket)        2  6.32729  6.32729  6.32729
+Propia (Sense-Reversing + Ticket)        4  3.90310  3.90310  3.90310
+Propia (Sense-Reversing + Ticket)        8 12.27530 12.27530 12.27530
+Propia (Sense-Reversing + Ticket)       12 16.17250 16.17250 16.17250
+Propia (Sense-Reversing + Ticket)       16 24.01750 24.01750 24.01750
+
+Speedup relativo (menor tiempo como referencia):
+impl_type  Libro (CondVar)  Propia (Sense-Reversing + Ticket)
+threads                                                      
+1                 1.000000                           0.536861
+2                 0.086863                           0.616868
+4                 0.054236                           1.000000
+8                 0.023575                           0.317964
+12                0.010664                           0.241342
+16                0.008902                           0.162511
+
+=== FIN DEL ANÁLISIS ===
